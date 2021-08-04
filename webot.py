@@ -85,7 +85,7 @@ async def about(client, message):
             disable_web_page_preview=True,        
             parse_mode="html")
 
-@Webot.on_message(filters.photo)
+@Webot.on_message(filters.photo.command("telegraph"))
 async def telegraphphoto(client, message):
     msg = await message.reply_text("Uploading To Telegraph...")
     download_location = await client.download_media(
@@ -95,13 +95,13 @@ async def telegraphphoto(client, message):
     except:
         await msg.edit_text("Photo size should be less than 5mb!") 
     else:
-        await msg.edit_text(f'**Uploaded To Telegraph!\n\n👉 https://telegra.ph{response[0]}\n\nJoin @WarBotZ**',
+        await msg.edit_text(f'**Uploaded To Telegraph!\n\n👉 https://telegra.ph{response[0]}\n\nJoin @GROUP_OF_HELL**',
             disable_web_page_preview=True,
         )
     finally:
         os.remove(download_location)
 
-@Webot.on_message(filters.video)
+@Webot.on_message(filters.video.command("telegraph"))
 async def telegraphvid(client, message):
     msg = await message.reply_text("Uploading To Telegraph...")
     download_location = await client.download_media(
@@ -111,13 +111,13 @@ async def telegraphvid(client, message):
     except:
         await msg.edit_text("Video size should be less than 5mb!") 
     else:
-        await msg.edit_text(f'**Uploaded To Telegraph!\n\n👉 https://telegra.ph{response[0]}\n\nJoin @WarBotZ**',
+        await msg.edit_text(f'**Uploaded To Telegraph!\n\n👉 https://telegra.ph{response[0]}\n\nJoin @GROUP_OF_HELL**',
             disable_web_page_preview=True,
         )
     finally:
         os.remove(download_location)
 
-@Webot.on_message(filters.animation)
+@Webot.on_message(filters.animation.command("telegraph"))
 async def telegraphgif(client, message):
     msg = await message.reply_text("Uploading To Telegraph...")
     download_location = await client.download_media(
@@ -127,7 +127,7 @@ async def telegraphgif(client, message):
     except:
         await msg.edit_text("Gif size should be less than 5mb!") 
     else:
-        await msg.edit_text(f'**Uploaded To Telegraph!\n\n👉 https://telegra.ph{response[0]}\n\nJoin @WarBotZ**',
+        await msg.edit_text(f'**Uploaded To Telegraph!\n\n👉 https://telegra.ph{response[0]}\n\nJoin @GROUP_OF_HELL**',
             disable_web_page_preview=True,
         )
     finally:
@@ -143,6 +143,9 @@ async def button(bot, update):
         await update.message.delete()
         await about(bot, update.message)
       elif "start" in cb_data:
+        await update.message.delete()
+        await start(bot, update.message)
+      elif "telegraph" in cb_data:
         await update.message.delete()
         await start(bot, update.message)
 
