@@ -85,7 +85,7 @@ async def about(client, message):
             disable_web_page_preview=True,        
             parse_mode="html")
 
-@Webot.on_message(filters.photo.command("telegraph"))
+@Webot.on_message(filters.command("telegraph"))
 async def telegraphphoto(client, message):
     msg = await message.reply_text("Uploading To Telegraph...")
     download_location = await client.download_media(
@@ -101,7 +101,7 @@ async def telegraphphoto(client, message):
     finally:
         os.remove(download_location)
 
-@Webot.on_message(filters.video.command("telegraph"))
+@Webot.on_message(filters.command("telegraph"))
 async def telegraphvid(client, message):
     msg = await message.reply_text("Uploading To Telegraph...")
     download_location = await client.download_media(
@@ -117,7 +117,7 @@ async def telegraphvid(client, message):
     finally:
         os.remove(download_location)
 
-@Webot.on_message(filters.animation.command("telegraph"))
+@Webot.on_message(filters.command("telegraph"))
 async def telegraphgif(client, message):
     msg = await message.reply_text("Uploading To Telegraph...")
     download_location = await client.download_media(
