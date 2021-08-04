@@ -12,31 +12,31 @@ Webot = Client(
    bot_token=Config.TG_BOT_TOKEN,
 )
 
-@Webot.on_message(filters.command("start"))
+@Webot.on_message(filters.command("tgstart"))
 async def start(client, message):
    if message.chat.type == 'private':
        await Webot.send_message(
                chat_id=message.chat.id,
                text="""<b>Hey There, I'm Telegraph Bot
 
-I can upload photos or videos to telegraph. Made by @itsmelegend  
+I can upload photos or videos to telegraph. Made by @SOULxDED  
 
-Hit help button to find out more about how to use me</b>""",   
+Hit /help button to find out more about how to use me</b>""",   
                             reply_markup=InlineKeyboardMarkup(
                                 [[
                                         InlineKeyboardButton(
-                                            "Help", callback_data="help"),
+                                            "NoBita", url="t.me/SOULxDED"),
                                         InlineKeyboardButton(
-                                            "Channel", url="https://t.me/warbotz")
+                                            "RiZoel", url="https://t.me/TheRiZoeL")
                                     ],[
                                       InlineKeyboardButton(
-                                            "Source Code", url="https://github.com/War-Legend/Telegraph")
+                                            "Support Group", url="https://t.me/GROUP_OF_HELL")
                                     ]]
                             ),        
             disable_web_page_preview=True,        
             parse_mode="html")
 
-@Webot.on_message(filters.command("help"))
+@Webot.on_message(filters.command("helptg"))
 async def help(client, message):
     if message.chat.type == 'private':   
         await Webot.send_message(
@@ -45,16 +45,16 @@ async def help(client, message):
 
 Just send a photo or video less than 5mb file size, I'll upload it to telegraph.
 
-~ @warbotz</b>""",
+~ @GROUP_OF_HELL</b>""",
         reply_markup=InlineKeyboardMarkup(
                                 [[
                                         InlineKeyboardButton(
-                                            "Back", callback_data="start"),
+                                            "NoBita", url="t.me/SOULxDED"),
                                         InlineKeyboardButton(
-                                            "About", callback_data="about"),
+                                            "RiZoel", url="t.me/TheRiZoeL"),
                                   ],[
                                         InlineKeyboardButton(
-                                            "Source Code", url="https://github.com/War-Legend/Telegraph")
+                                            "Support Group", url="https://t.me/GROUP_OF_HELL")
                                     ]]
                             ),        
             disable_web_page_preview=True,        
@@ -67,19 +67,19 @@ async def about(client, message):
                chat_id=message.chat.id,
                text="""<b>About Telegraph Bot!</b>
 
-<b>♞ owner:</b> <a href="https://t.me/Itsmelegend">Abhishek </a>
+<b>♞ owner:</b> <a href="https://t.me/SOULXDED">NoBita </a>
 
-<b>♞ Support:</b> <a href="https://t.me/camila_Support">camila Support </a>
+<b>♞ Support:</b> <a href="https://t.me/GROUP_OF_HELL">Michael Support </a>
 
-<b>♞ GitHub:</b> <a href="https://github.com/War-Legend">here </a>
+<b>♞ GitHub:</b> <a href="https://github.com/archangelmichael01">here </a>
 
-<b>~ @warbotz</b>""",
+<b>~ @Its_Michael_robot</b>""",
      reply_markup=InlineKeyboardMarkup(
                                 [[
                                         InlineKeyboardButton(
                                             "Back", callback_data="help"),
                                         InlineKeyboardButton(
-                                            "Source Code", url="https://github.com/War-Legend/Telegraph")
+                                            "Support Group", url="https://t.me/GROUP_OF_HELL")
                                     ]]
                             ),        
             disable_web_page_preview=True,        
@@ -147,7 +147,7 @@ async def button(bot, update):
         await start(bot, update.message)
       elif "telegraph" in cb_data:
         await update.message.delete()
-        await start(bot, update.message)
+        await telegraph(bot, update.message)
 
 print(
     """
