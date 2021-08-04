@@ -86,7 +86,7 @@ async def about(client, message):
             parse_mode="html")
 
 @Webot.on_message(filters.command("telegraph"))
-async def telegraphphoto(client, message):
+async def telegraph(client, message):
     msg = await message.reply_text("Uploading To Telegraph...")
     download_location = await client.download_media(
         message=message, file_name='root/jetg')
@@ -102,7 +102,7 @@ async def telegraphphoto(client, message):
         os.remove(download_location)
 
 @Webot.on_message(filters.command("telegraph"))
-async def telegraphvid(client, message):
+async def telegraph(client, message):
     msg = await message.reply_text("Uploading To Telegraph...")
     download_location = await client.download_media(
         message=message, file_name='root/jetg')
@@ -118,7 +118,7 @@ async def telegraphvid(client, message):
         os.remove(download_location)
 
 @Webot.on_message(filters.command("telegraph"))
-async def telegraphgif(client, message):
+async def telegraph(client, message):
     msg = await message.reply_text("Uploading To Telegraph...")
     download_location = await client.download_media(
         message=message, file_name='root/jetg')
